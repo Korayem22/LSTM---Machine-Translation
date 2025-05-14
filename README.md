@@ -22,7 +22,7 @@ This project implements a sequence-to-sequence (Seq2Seq) neural network for Engl
 - Greedy decoding during inference
 - BLEU score evaluation on test set
 
-## 🗂 Dataset
+## Dataset
 
 The dataset is based on the [Tatoeba English-Arabic parallel corpus](https://opus.nlpl.eu/Tatoeba.php), preprocessed to remove repeated samples and heavily filtered for unknown tokens.
 
