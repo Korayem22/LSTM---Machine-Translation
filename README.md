@@ -1,28 +1,33 @@
-# English-to-Arabic Machine Translation using Seq2Seq LSTM (PyTorch)
+# BiLSTM Sequence-to-Sequence Machine Translation with Attention
 
-This project implements a sequence-to-sequence (Seq2Seq) neural network for English-to-Arabic translation using PyTorch. The model is built without attention and uses an encoder-decoder architecture with LSTM layers.
+This project implements an English-to-Italian machine translation model using a bidirectional LSTM encoder, attention mechanism, and teacher forcing in PyTorch. It includes data preprocessing, vocabulary building, custom dataset class, training loop, evaluation via BLEU score, and translation inference.
 
-## Model Overview
-
-- **Encoder**: Bidirectional LSTM
-- **Decoder**: Unidirectional LSTM
-- **Embedding Layers**: Learnable source and target embeddings
-- **Loss Function**: Label smoothed cross-entropy (optional)
-- **Training Strategy**:
-  - Teacher Forcing with optional decaying ratio
-  - Padding handling via `ignore_index`
-  - Early stopping based on validation loss (manual)
+---
 
 ##  Features
 
-- Custom vocabulary and tokenization
-- Training/validation/test split
-- Label smoothing for regularization
-- Decaying teacher forcing ratio to reduce overfitting
-- Greedy decoding during inference
-- BLEU score evaluation on test set
+-  Bidirectional LSTM Encoder
+-  Attention-based Decoder
+-  Token-level vocabulary with rare-word filtering and UNK handling
+-  Evaluation using BLEU Score
+-  Inference with greedy decoding
+-  Preprocessing pipeline: cleaning, tokenization, length filtering
 
-## Dataset
+---
 
-The dataset is based on the [Tatoeba English-Arabic parallel corpus](https://opus.nlpl.eu/Tatoeba.php), preprocessed to remove repeated samples and heavily filtered for unknown tokens.
+##  Dataset
+
+- Source: [OPUS-100](https://huggingface.co/datasets/opus100) (`en-it` split)
+- Used Hugging Face `datasets` library for loading
+- Training limited to N samples (default: 100k)
+- Sentences longer than 10 tokens are excluded
+
+---
+
+##  Dependencies
+
+- `torch`
+- `datasets`
+- `nltk`
+- `tqdm`
 
